@@ -30,3 +30,17 @@ def derivs(state, t):
                / den2)
 
     return dydx
+dt = 0.05
+t = np.arange(0, 20, dt)
+th1 = 120.0
+w1 = 0.0
+th2 = -10.0
+w2 = 0.0
+state = np.radians([th1, w1, th2, w2])
+y = integrate.odeint(derivs, state, t)
+
+x1 = L1*sin(y[:, 0])
+y1 = -L1*cos(y[:, 0])
+
+x2 = L2*sin(y[:, 2]) + x1
+y2 = -L2*cos(y[:, 2]) + y1
