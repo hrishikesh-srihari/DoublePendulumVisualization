@@ -71,4 +71,6 @@ def animate(i):
 
 ani = animation.FuncAnimation(fig, animate, range(1, len(y)),
                               interval=dt*1000, blit=True, init_func=init)
+
+plt.gcf().canvas.set_window_title('Double Pendulum Visualization')
 plt.show()
